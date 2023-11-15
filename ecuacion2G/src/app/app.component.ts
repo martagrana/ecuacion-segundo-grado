@@ -31,12 +31,12 @@ export class AppComponent {
     this.raizdiscriminante = Math.sqrt(this.discriminante);
 
     if (this.discriminante < 0) {
-      this.advertencia = 'no existe solución real';
+      this.advertencia = 'No existe solución real';
     } else {
       this.advertencia = 'Las soluciones son';
-      this.solucion.solucion1 = (- this.coeficientes.grado1 + this.raizdiscriminante) / 2 * this.coeficientes.grado2;
+      this.solucion.solucion1 = (- this.coeficientes.grado1 + this.raizdiscriminante) / 2 / this.coeficientes.grado2;
       this.solucion.solucion1 = Number(this.solucion.solucion1.toFixed(2));
-      this.solucion.solucion2 = (- this.coeficientes.grado1 - this.raizdiscriminante) / 2 * this.coeficientes.grado2;
+      this.solucion.solucion2 = (- this.coeficientes.grado1 - this.raizdiscriminante) / 2 / this.coeficientes.grado2;
       this.solucion.solucion2 = Number(this.solucion.solucion2.toFixed(2));
 
     };
