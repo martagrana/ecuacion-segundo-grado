@@ -23,16 +23,21 @@ export class AppComponent {
     solucion2: 0,
   };
 
+  discriminante: number = 0;
 
 
   calcular() {
-    let discriminante: number = Math.pow(this.coeficientes.grado1, 2) - 4 * this.coeficientes.grado2 * this.coeficientes.independiente;
+    this.discriminante = Math.pow(this.coeficientes.grado1, 2) - 4 * this.coeficientes.grado2 * this.coeficientes.independiente;
 
-    if (discriminante < 0) {
+    if (this.discriminante < 0) {
       this.advertencia = 'No existe solución real';
+      this.solucion.solucion1 = 0;
+      this.solucion.solucion2 = 0;
+
+
     } else {
       this.advertencia = 'Las soluciones son';
-      let raizdiscriminante: number = Math.sqrt(discriminante);
+      let raizdiscriminante: number = Math.sqrt(this.discriminante);
 
       let solucion1 = (- this.coeficientes.grado1 + raizdiscriminante) / (2 * this.coeficientes.grado2);
       this.solucion.solucion1 = Number(solucion1.toFixed(2));

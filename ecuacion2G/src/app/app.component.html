@@ -5,7 +5,6 @@
   <div>
     <table style="width:50%">
       <tr>
-
         <td><input type="number" [(ngModel)]="coeficientes.grado2"> <span>x</span><sup>2</sup>+</td>
         <td><input type="number" [(ngModel)]="coeficientes.grado1">x+</td>
         <td><input type="number" [(ngModel)]="coeficientes.independiente"></td>
@@ -22,10 +21,13 @@
   <button type="button" (click)="calcular()">Resolver</button>
 </div>
 <div>
-  <table style="width:50%">
+
+  <table style="width:50%" *ngIf="discriminante>=0">
     <tr>
       <td>{{solucion.solucion1}}</td>
       <td>{{solucion.solucion2}}</td>
     </tr>
   </table>
+
+
 </div>
