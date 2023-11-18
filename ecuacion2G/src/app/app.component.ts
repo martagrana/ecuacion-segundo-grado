@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+class Solucion {
+  solucion1: number = 0;
+  solucion2: number = 0;
 
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,10 +19,9 @@ export class AppComponent {
   };
 
 
-
   advertencia: string = '¿Que ecuación deseas resolver?'
 
-  solucion = {
+  solucion: Solucion = {
     solucion1: 0,
     solucion2: 0,
   };
