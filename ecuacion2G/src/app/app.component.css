@@ -1,0 +1,29 @@
+.contenedor-soluciones {
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.contenedor-boton {
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contenedor-ecuacion {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.div-solucion {
+    width: 48%;
+    box-sizing: border-box;
+    border: 1px solid black;
+}

@@ -1,9 +1,9 @@
 <h1>Resolución ecuaciones de segundo grado</h1>
 
-<div>
+<div class="contenedor-ecuacion">
   <h2>Introduce datos</h2>
   <div>
-    <table style="width:50%">
+    <table style="text-align: center;" style="width:50%">
       <tr>
         <td><input type="number" [(ngModel)]="coeficientes.grado2"> <span>x</span><sup>2</sup>+</td>
         <td><input type="number" [(ngModel)]="coeficientes.grado1">x+</td>
@@ -14,20 +14,20 @@
   </div>
 </div>
 
-<div>
-  <h2>{{advertencia}}</h2>
-</div>
-<div>
-  <button type="button" (click)="calcular()">Resolver</button>
-</div>
-<div>
-
-  <table style="width:50%" *ngIf="discriminante>=0">
+<div class="contenedor-soluciones">
+  <table style="width:50%">
     <tr>
-      <td>{{solucion.solucion1}}</td>
-      <td>{{solucion.solucion2}}</td>
+      <th>{{advertencia}}</th>
+      <td><button type="button" (click)="calcular()">Resolver</button></td>
     </tr>
   </table>
+</div>
 
-
+<div class="contenedor-soluciones">
+  <table style="width:50%" *ngIf="discriminante>=0 && coeficientes.grado2!==0">
+    <tr>
+      <td>x<sub>1</sub>={{solucion.solucion1}}</td>
+      <td>x<sub>2</sub>={{solucion.solucion2}}</td>
+    </tr>
+  </table>
 </div>

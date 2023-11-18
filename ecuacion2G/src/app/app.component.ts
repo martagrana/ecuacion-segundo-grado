@@ -18,7 +18,6 @@ export class AppComponent {
     independiente: 0,
   };
 
-
   advertencia: string = '¿Que ecuación deseas resolver?'
 
   solucion: Solucion = {
@@ -28,16 +27,14 @@ export class AppComponent {
 
   discriminante: number = 0;
 
-
   calcular() {
     this.discriminante = Math.pow(this.coeficientes.grado1, 2) - 4 * this.coeficientes.grado2 * this.coeficientes.independiente;
-
     if (this.discriminante < 0) {
       this.advertencia = 'No existe solución real';
       this.solucion.solucion1 = 0;
       this.solucion.solucion2 = 0;
-
-
+    } else if (this.coeficientes.grado2 === 0) {
+      this.advertencia = 'No es una ecuacion de segundo grado';
     } else {
       this.advertencia = 'Las soluciones son';
       let raizdiscriminante: number = Math.sqrt(this.discriminante);
@@ -47,10 +44,7 @@ export class AppComponent {
 
       let solucion2 = (- this.coeficientes.grado1 - raizdiscriminante) / (2 * this.coeficientes.grado2);
       this.solucion.solucion2 = Number(solucion2.toFixed(2));
-
     };
-
   }
-
 
 }
