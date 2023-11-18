@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ecuacion2G';
+  title: string = 'ecuacion2G';
 
   coeficientes = {
     grado2: 0,
@@ -14,8 +14,8 @@ export class AppComponent {
     independiente: 0,
   };
 
-  discriminante: number = 0;
-  raizdiscriminante: number = 0;
+
+
   advertencia: string = '¿Que ecuación deseas resolver?'
 
   solucion = {
@@ -26,18 +26,19 @@ export class AppComponent {
 
 
   calcular() {
+    let discriminante: number = Math.pow(this.coeficientes.grado1, 2) - 4 * this.coeficientes.grado2 * this.coeficientes.independiente;
 
-    this.discriminante = this.coeficientes.grado1 ** 2 - 4 * this.coeficientes.grado2 * this.coeficientes.independiente;
-    this.raizdiscriminante = Math.sqrt(this.discriminante);
-
-    if (this.discriminante < 0) {
+    if (discriminante < 0) {
       this.advertencia = 'No existe solución real';
     } else {
       this.advertencia = 'Las soluciones son';
-      this.solucion.solucion1 = (- this.coeficientes.grado1 + this.raizdiscriminante) / 2 / this.coeficientes.grado2;
-      this.solucion.solucion1 = Number(this.solucion.solucion1.toFixed(2));
-      this.solucion.solucion2 = (- this.coeficientes.grado1 - this.raizdiscriminante) / 2 / this.coeficientes.grado2;
-      this.solucion.solucion2 = Number(this.solucion.solucion2.toFixed(2));
+      let raizdiscriminante: number = Math.sqrt(discriminante);
+
+      let solucion1 = (- this.coeficientes.grado1 + raizdiscriminante) / (2 * this.coeficientes.grado2);
+      this.solucion.solucion1 = Number(solucion1.toFixed(2));
+
+      let solucion2 = (- this.coeficientes.grado1 - raizdiscriminante) / (2 * this.coeficientes.grado2);
+      this.solucion.solucion2 = Number(solucion2.toFixed(2));
 
     };
 
